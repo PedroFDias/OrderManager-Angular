@@ -1,0 +1,33 @@
+<form [formGroup]="login" (ngSubmit)="Enviar()" #formDir="ngForm" class="forms-1">
+  <div class="d-flex gap-3">
+    <i class="bi bi-box fs-4"></i>
+    <h1 class="fs-2">Order Manager</h1>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      formControlName="email"
+      required
+    />
+  </div>
+  <div  *ngIf="email.invalid && formDir.submitted" class="alert alert-warning" role="alert">
+    Email obrigatório!
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+      formControlName="password"
+    />
+  </div>
+  <div *ngIf="password.invalid && formDir.submitted" class="alert alert-warning" role="alert">
+    Senha obrigatório!
+  </div>
+  <button type="submit" class="btn btn-primary">Logar</button>
+</form>
